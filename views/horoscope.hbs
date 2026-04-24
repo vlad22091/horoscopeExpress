@@ -104,3 +104,36 @@ table tr:hover {
                     </table>
                 <div><a href="/generate" class="btn-generate" >GENERATE</a></div>
             </body>
+
+<head>
+  <style>
+    body {
+      background: black;
+    }
+    h1 {
+      color: white;
+    }
+    button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+
+  <button onclick="document.getElementById('vid').style.display='block'; this.style.display='none'">
+    ???
+  </button>
+
+  <video id="vid" src="/images/rick.mp4" controls style="display:none; width:100%; height:100%; position:fixed; top:0; left:0; background:black; z-index:99">
+  </video>
+
+</body>
