@@ -13,7 +13,8 @@ const createTableQuery = `
     sign TEXT,
     month TEXT,
     text TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (month)
 )`;
 
 pool.query(createTableQuery)
