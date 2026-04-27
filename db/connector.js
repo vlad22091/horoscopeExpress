@@ -13,6 +13,7 @@ const createTableQuery = `
     sign TEXT,
     month TEXT,
     text TEXT,
+    reaction VARCHAR(10),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE (month)
 )`;

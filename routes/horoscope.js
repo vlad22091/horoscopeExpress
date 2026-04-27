@@ -68,4 +68,26 @@ router.post('/generate', async (req, res) => {
   }
 });
 
+router.post('/reaction', async (req, res) => {
+  const { id, reaction } = req.body;
+  try {''
+    await db.query('UPDATE horoscope SET reaction = $1 WHERE id = $2', [reaction, id]);
+    res.json({ ok: true });
+  } catch (err) {
+    console.error(err);
+    res.status(400).send("Помилка бази даних");
+  }
+});
+
+                    
+function setReaction(id, type, btn) {
+  const group = btn.closest('.reaction-group');
+
+  group.querySelectorAll('.btn-reaction').forEach(b => {
+    b.classList.remove('active');
+  });
+
+  btn.classList.add('active');
+}
+
 export default router;
