@@ -14,8 +14,7 @@ const createTableQuery = `
     month TEXT,
     text TEXT,
     reaction VARCHAR(10),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (month)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )`;
 
 pool.query(createTableQuery)

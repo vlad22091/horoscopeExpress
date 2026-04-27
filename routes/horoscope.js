@@ -37,7 +37,7 @@ router.post('/generate', async (req, res) => {
           },
           {
             role: "user",
-            content: `Напиши гороскоп для знака ${sign} на місяць ${month}.`,
+            content: `Напиши короткий гороскоп 4 речення для знака ${sign} на місяць ${month}.`,
           },
         ],
         max_tokens: 512,
@@ -64,13 +64,13 @@ router.post('/generate', async (req, res) => {
 
   } catch (err) {
     console.error("Groq Error:", err.message);
-    res.status(500).send(`Помилка генерації: ${err.message}`);
+    res.status(400).send(`Помилка генерації: ${err.message}`);
   }
 });
 
 router.post('/reaction', async (req, res) => {
   const { id, reaction } = req.body;
-  try {''
+  try {
     await db.query('UPDATE horoscope SET reaction = $1 WHERE id = $2', [reaction, id]);
     res.json({ ok: true });
   } catch (err) {
@@ -78,16 +78,5 @@ router.post('/reaction', async (req, res) => {
     res.status(400).send("Помилка бази даних");
   }
 });
-
-                    
-function setReaction(id, type, btn) {
-  const group = btn.closest('.reaction-group');
-
-  group.querySelectorAll('.btn-reaction').forEach(b => {
-    b.classList.remove('active');
-  });
-
-  btn.classList.add('active');
-}
 
 export default router;
