@@ -1,19 +1,6 @@
 <style>
-
-.btn-recroll {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: white;
-}
-
 :root {
-    background-color: #000000; 
+    background: #9b8254;
     color: #ffffff;           
     color-scheme: dark;  
 }
@@ -21,20 +8,19 @@
 html, body {
     height: 100% !important;
     margin: 0;
-}
+    }
 
 body {
     margin: 0;       
     padding: 0;
     min-height: 100vh; 
-    background-color: #000000;
 }
 
 table {
     width: 1000px;
     margin: 50px auto;
     border-collapse: collapse;
-    background: rgba(255, 255, 255, 0); 
+    background: #0a0a1a;
     backdrop-filter: blur(10px);         
     border-radius: 15px;
     overflow: hidden;
@@ -43,7 +29,7 @@ table {
 }
 
 table th {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(24, 7, 71, 0.1);
     color: #fff;
     padding: 14px;
     text-transform: uppercase;
@@ -114,7 +100,7 @@ table tr:hover {
     font-size: 24px;
     cursor: pointer;
     padding: 4px;
-    transition: transform 0.15s, filter 0.15s;
+    transition: transform 0.1s, filter 0.1s;
 }
 
 .btn-reaction.active {
@@ -130,11 +116,9 @@ table tr:hover {
 
 </style>
             </button>
-                <h1 class="btn-list">HOROSCOPE</h1>
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">ID</th>
                                 <th scope="col">SIGN</th>
                                 <th scope="col">MONTH</th>
                                 <th scope="col">TEXT</th>
@@ -144,7 +128,6 @@ table tr:hover {
                             <tbody>
                                 {{#each horoscope }}
                                     <tr>
-                                        <th scope="row">{{this.id}}</th>
                                         <td>{{this.sign}}</td>
                                         <td>{{this.month}}</td>
                                         <td>{{this.text}}</td>
@@ -170,16 +153,6 @@ table tr:hover {
                                 {{/each}}
                             </tbody>
                         </table>
-                    <div><a href="/generate" class="btn-generate" >GENERATE</a></div>
-                    
-                    
-                       
-                        <button onclick="document.getElementById('vid').style.display='block'; this.style.display='none'" class='btn-recroll'>
-                            SUPPORT
-                        </button>
-
-                        <video autoplay loop muted playsinline id="vid" src="/images/rick.mp4" style="display:none; width:100%; height:100%; position:fixed; top:0; left:0; background:black; z-index:99" type="video/mp4">
-                    </video>
                     <script>
                      function setReaction(id, reaction, btn) {
                      fetch('/reaction', {

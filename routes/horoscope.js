@@ -2,18 +2,21 @@ import express from "express";
 const router = express.Router();
 import db from "../db/connector.js";
 import OpenAI from "openai";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
-router.get('/', async function(req, res, next) {
+router.get('/', (req, res) => {
+  res.render('main');
+});
+
+router.get('/db', async function(req, res, next) {
     try {
-        const result = await db.query('SELECT * FROM horoscope');
+        const result = await db.query('SELECT * FROM horoscope ORDER BY id ASC');
         res.render('horoscope', { horoscope: result.rows });
     } catch (err) {
         console.error(err);
         res.status(400).send("Помилка бази даних");
     }
 });
-
+ 
 router.get('/generate', (req, res) => {
   res.render('generate_form');
 });
@@ -71,7 +74,7 @@ router.post('/generate', async (req, res) => {
       );
     }
 
-    res.redirect('/');
+    res.redirect('/db');
 
   } catch (err) {
     console.error("Groq Error:", err.message);
