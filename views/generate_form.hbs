@@ -1,10 +1,7 @@
 <style>
 
 body {
-    background-image: url('/images/horoscope.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: #0a0a1a;;
     margin: 0;
     display: flex;
     margin-top: 0px;
@@ -34,7 +31,19 @@ select, button {
 }
 
 option {
-  background: black;
+  background: #c9a96e;;
+  
+}
+
+select {
+  background: #c9a96e;
+  color: white;
+}
+
+.btn-submit {
+  background: #c9a96e;
+  color: white;
+  padding: 1rem 1rem;
 }
     
 </style>
@@ -70,5 +79,5 @@ option {
     <option value="Грудень">Грудень❄️</option>
   </select>
   
-  <button type="submit">Згенерувати гороскоп</button>
+  <button type="submit" class="btn-submit">Згенерувати гороскоп</button>
 </form>
